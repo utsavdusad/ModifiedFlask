@@ -1,0 +1,13 @@
+first activate the environment by          
+$. bin/activate
+
+then goto app folder where application named routestemp.py reside
+
+$cd app
+
+
+
+then run it
+
+
+$python routestemp.py
