@@ -1,0 +1,19 @@
+<html>
+<title>{{ rows[1] }}'s Info</title>
+ <body>
+    
+
+<table>
+<tr><td><h3>Id</h3></td>    <td><h3>Name</h3></td></tr>
+<tr></tr>
+ {{% if rows %}} 
+<tr><td>{{ rows[0] }}</td>    <td>{{ rows[1] }}</td></tr>
+ {{% else %}}
+<h4>Sorry this {{ Id }} is not Present</h4>
+{{% endif %}}  
+
+</table>
+
+</body>
+</html>
+
