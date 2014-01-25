@@ -66,7 +66,7 @@ def homepage():
 
 @app.route('/getstudent/', methods=['GET'])
 def test():
-
+	#print "my name is khan"	
 	cur = g.db.execute('select * from student')		
 	#rows = [dict(Id=row[0], name=row[1]) for row in cur.fetchall()]
 	rows = cur.fetchall()
@@ -76,11 +76,11 @@ def test():
 @app.route('/getstudent/<Id>', methods=['GET','POST'])
 def show_user_profile(Id):
     # show the user profile for that user
+    #print "my name is khan"	
     if request.method == 'POST':
 	#db = get_db()
     	#g.db.execute('insert into student (id,name) values("' + Id+'","' +request.form['data'] + '")' )
-    	
-	g.db.execute('insert into student (id, name) values (?, ?)',
+    	g.db.execute('insert into student (id, name) values (?, ?)',
                  [Id, request.form['data']])
 	g.db.commit()	
 	return render_template('message.html',mssg="Data of ID=" + Id+  " name ="  + request.form['data'] + " entered successfully")
@@ -113,6 +113,6 @@ def set_user_profile(Id,name):
 
 if __name__ == '__main__':
   init_db()
-  app.run()
+  app.run(debug=True)
 
 

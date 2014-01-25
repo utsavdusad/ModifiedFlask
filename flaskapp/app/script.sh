@@ -1,6 +1,6 @@
 #!/bin/sh
-awk '/Concurrency Level:/{print $3}' delete1.txt >temp.txt
-awk '/Time per request:/{print $4}' delete1.txt >file1.txt
-head -1 file1.txt| cat >>temp.txt
-tr '\n' '\t\t\t' < temp.txt|cat >temp2.txt
-awk 'BEGIN{print"no. concurrent processes  time"}{print}' temp2.txt >>finalop.txt
+awk '/Concurrency Level:/{print $3}' abresult >temp4concurrencylevel.txt
+awk '/Time per request:/{print $4}' abresult >temp4tperqst.txt
+head -1 temp4tperqst.txt| cat >>temp4concurrencylevel.txt
+tr '\n' '\t\t\t' < temp4concurrencylevel.txt|cat >tempcombined.txt
+awk 'BEGIN{print"concurrency  time"}{print}' tempcombined.txt >>finalop.txt
