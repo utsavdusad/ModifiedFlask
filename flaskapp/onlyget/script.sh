@@ -19,5 +19,5 @@ head -1 temp4timtak4test.txt | cat >>temp4compreqst.txt
 #head -1 temp4timtak4test.txt | cat >>temp4concurrencylevel.txt
 
 tr '\n' '\t\t\t' < temp4compreqst.txt|cat >tempcombined.txt
-awk '{print}' tempcombined.txt >>finalop.txt
-#awk 'BEGIN{print"t_no   con  lt4req(ms)   t_pr(ms)   tt4tst(s) "}{print}' tempcombined.txt >>finalop.txt
+#awk '{print}' tempcombined.txt >>finalop.txt
+awk 'BEGIN{print"\nComplete requests   concurrency level  longest time for request(ms)   time per request(ms)   total time for tests(s) "}{printf "%12s %15s %25s %25s %25s",$1,$2,$3,$4,$5}' tempcombined.txt >>finalop.txt

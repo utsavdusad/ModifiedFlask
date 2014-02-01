@@ -96,18 +96,25 @@ def show_user_profile(Id):
 @app.route('/setstudent/<Id>/<name>',methods=['PUT','POST'])
 def set_user_profile(Id,name):
     # show the user profile for that user
-    con = None
-    con = lite.connect('test.db')
-    with con:	
-		cur= con.cursor()
+#    con = None
+#   con = lite.connect('test.db')
+#    with con:	
+#		cur= con.cursor()
 		if request.method == 'PUT':
-			cur.execute('update test set Name="' + name + '"where id='+Id )
+			cur=g.db.execute('update student set Name="' + name + '"where id='+Id )
 		elif request.method == 'POST':
-			cur.execute('insert into test (Id,name) values(' + Id + ',"'+ name+'")' )
-		cur.execute('SELECT * from test')
+			g.db.execute('insert into student (Id,name) values(' + Id + ',"'+ name+'")' )
+		cur=g.db.execute('SELECT * from student')
 		rows = cur.fetchall()
 		return render_template('hometest.html', rows=rows)
 
+@app.route('/deletestudent/<Id>',methods=['DELETE'])
+def delete_user_profile(Id):
+    
+		cur=g.db.execute('delete from student where id='+Id )
+		cur=g.db.execute('SELECT * from student')
+		rows = cur.fetchall()
+		return render_template('hometest.html', rows=rows)
   
 
 

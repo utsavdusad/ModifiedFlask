@@ -1,4 +1,2 @@
-t_no   con  lt4req(ms)   t_pr(ms)   tt4tst(sec) 
-1000	100	155	1.259	1.259	
-10000	100	154	1.235	12.347	
-100000	100	401	1.424	142.400	
+Complete requests   concurrency level  longest time for request(ms)   time per request(ms)   total time for tests(s) 
+      100000             100                       401                     1.424                   142.400

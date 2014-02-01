@@ -1,0 +1,7 @@
+	Complete requests  concurrency level  longest time for request(ms)   time per request(ms)  total time for tests(s)
+
+
+Original:     1000             100                       131                     1.161                     1.161
+Modified:			                         128                     1.166                     1.166
+
+

@@ -35,7 +35,21 @@ class FlaskrTestCase(unittest.TestCase):
 	rv=self.post_add('Mayur')        
 	#assert 'entered successfully' in rv.data
 	assert  '400 Bad Request' in rv.data
-	
+   
+
+    def put_add(self):
+	return self.app.put('/setstudent/1/Mayur')
+
+    def test_put_add(self):
+	rv=self.put_add()
+	assert '400 Bad Request' in rv.data	
+
+    def delete_user(self):
+	return self.app.delete('/deletestudent/1')
+
+    def test_delete_user(self):
+	rv=self.delete_user()
+	assert '400 Bad Request' in rv.data	
     
 if __name__ == '__main__':
     unittest.main()
